@@ -1,0 +1,11 @@
+/* 
+  Localizable.strings
+  DisplayPhotos
+
+  Created by Yasmin Ayman on 28/07/1444 AH.
+  
+*/
+
+"Image_Ad" = "ad";
+"Error_ImageNotAvailable" = "Image is not available 😢";
+"Title_Photos" = "Photos";
