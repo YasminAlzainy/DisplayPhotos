@@ -15,6 +15,7 @@
 		CC85461829A772310030E9D8 /* ChachedPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC85461729A772310030E9D8 /* ChachedPhotoView.swift */; };
 		CC85461B29A775D10030E9D8 /* UIImageColors in Frameworks */ = {isa = PBXBuildFile; productRef = CC85461A29A775D10030E9D8 /* UIImageColors */; };
 		CC85461D29A779A00030E9D8 /* ViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC85461C29A779A00030E9D8 /* ViewExt.swift */; };
+		CCD41C6B29A7D1B4003C149F /* Utils_Objc.m in Sources */ = {isa = PBXBuildFile; fileRef = CCD41C6A29A7D1B4003C149F /* Utils_Objc.m */; };
 		CCE50A2429A2B26C00BBD405 /* DisplayPhotosApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE50A2329A2B26C00BBD405 /* DisplayPhotosApp.swift */; };
 		CCE50A2629A2B26C00BBD405 /* PhotosListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE50A2529A2B26C00BBD405 /* PhotosListView.swift */; };
 		CCE50A2829A2B27200BBD405 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CCE50A2729A2B27200BBD405 /* Assets.xcassets */; };
@@ -56,6 +57,9 @@
 		CC85461529A768FB0030E9D8 /* LoadedPhotoInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadedPhotoInfoModel.swift; sourceTree = "<group>"; };
 		CC85461729A772310030E9D8 /* ChachedPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChachedPhotoView.swift; sourceTree = "<group>"; };
 		CC85461C29A779A00030E9D8 /* ViewExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExt.swift; sourceTree = "<group>"; };
+		CCD41C6829A7D1A3003C149F /* Utils_Objc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Utils_Objc.h; sourceTree = "<group>"; };
+		CCD41C6929A7D1B3003C149F /* DisplayPhotos-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DisplayPhotos-Bridging-Header.h"; sourceTree = "<group>"; };
+		CCD41C6A29A7D1B4003C149F /* Utils_Objc.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Utils_Objc.m; sourceTree = "<group>"; };
 		CCE50A2029A2B26C00BBD405 /* DisplayPhotos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DisplayPhotos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCE50A2329A2B26C00BBD405 /* DisplayPhotosApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayPhotosApp.swift; sourceTree = "<group>"; };
 		CCE50A2529A2B26C00BBD405 /* PhotosListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosListView.swift; sourceTree = "<group>"; };
@@ -208,6 +212,9 @@
 				CC85460D29A605080030E9D8 /* StringEx.swift */,
 				CC85461329A6AE300030E9D8 /* URLCacheEx.swift */,
 				CC85461C29A779A00030E9D8 /* ViewExt.swift */,
+				CCD41C6829A7D1A3003C149F /* Utils_Objc.h */,
+				CCD41C6A29A7D1B4003C149F /* Utils_Objc.m */,
+				CCD41C6929A7D1B3003C149F /* DisplayPhotos-Bridging-Header.h */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -293,6 +300,7 @@
 				TargetAttributes = {
 					CCE50A1F29A2B26C00BBD405 = {
 						CreatedOnToolsVersion = 14.0.1;
+						LastSwiftMigration = 1400;
 					};
 					CCE50A2F29A2B27300BBD405 = {
 						CreatedOnToolsVersion = 14.0.1;
@@ -365,6 +373,7 @@
 				CCE50A5D29A2BF7000BBD405 /* NetworkError.swift in Sources */,
 				CCE50A2429A2B26C00BBD405 /* DisplayPhotosApp.swift in Sources */,
 				CCE50A9D29A50CDD00BBD405 /* PhotoView.swift in Sources */,
+				CCD41C6B29A7D1B4003C149F /* Utils_Objc.m in Sources */,
 				CC85460E29A605080030E9D8 /* StringEx.swift in Sources */,
 				CCE50A5B29A2BC2000BBD405 /* PhotosListService.swift in Sources */,
 				CC85461D29A779A00030E9D8 /* ViewExt.swift in Sources */,
@@ -530,6 +539,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"DisplayPhotos/Preview Content\"";
@@ -550,6 +560,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.VOIS.DisplayPhotos;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "DisplayPhotos/Utils/DisplayPhotos-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -560,6 +572,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"DisplayPhotos/Preview Content\"";
@@ -580,6 +593,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.VOIS.DisplayPhotos;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "DisplayPhotos/Utils/DisplayPhotos-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

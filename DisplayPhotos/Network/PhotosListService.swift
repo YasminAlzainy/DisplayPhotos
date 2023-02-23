@@ -10,11 +10,18 @@ import Foundation
 class PhotosListService {
     static func fetchPhotos(page : Int , limit: Int , completionHandler : @escaping (Result<[PhotoInfoModel] , NetworkError>) -> Void) {
         
-        guard let photosURL = Utils.createPhotosListURL(page:page , limit: limit) else {
+        guard let photosURL = Utils_Objc.createPhotosListURL(withPage: page, withLimit: limit) else {
             print("error: \(NetworkError.badURL)")
             completionHandler(.failure(.badURL))
             return
         }
+        
+        //MARK: With swift
+//                guard let photosURL = Utils.createPhotosListURL(page:page , limit: limit) else {
+//                    print("error: \(NetworkError.badURL)")
+//                    completionHandler(.failure(.badURL))
+//                    return
+//                }
         
         URLSession.shared.dataTask(with: photosURL) { data, response, error in
             if let error = error {
