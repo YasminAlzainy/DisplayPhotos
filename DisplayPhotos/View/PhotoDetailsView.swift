@@ -6,22 +6,34 @@
 //
 
 import SwiftUI
+import UIImageColors
 
 struct PhotoDetailsView: View {
     @Binding var loadedPhotoInfo: LoadedPhotoInfoModel
+    @State private var backgroundColor: Color = .clear
     
     var body: some View {
-        loadedPhotoInfo.loadedImage
-            .resizable()
-            .aspectRatio(contentMode: .fit)
-            .mask(RoundedRectangle(cornerRadius: 16))
-            .padding()
-        Text("Taken by: \(loadedPhotoInfo.photoInfo.author)")
-            .font(.headline)
-            .bold()
-            .multilineTextAlignment(.center)
+        VStack{
+            Spacer()
+            loadedPhotoInfo.loadedImage
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .mask(RoundedRectangle(cornerRadius: 16))
+                .padding()
+            Text("Taken by: \(loadedPhotoInfo.photoInfo.author)")
+                .font(.headline)
+                .background(.white)
+                .multilineTextAlignment(.center)
+            Spacer()
+        }
         
+        .background(backgroundColor)
+        .edgesIgnoringSafeArea(.all)
+        .onAppear {
+            let uiImage: UIImage = loadedPhotoInfo.loadedImage.asUIImage()
+            let uiColor = uiImage.getColors()?.background ?? .clear
+            backgroundColor = Color(uiColor)
+        }
         
-        Spacer()
     }
 }

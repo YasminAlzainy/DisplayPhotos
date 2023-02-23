@@ -43,9 +43,13 @@ class PhotosListViewModel: ObservableObject {
         let currentPhotoInfo = photosList.filter { photoInfo in
             photoInfo.id == photoId
         }
+
         if !currentPhotoInfo.isEmpty{
-            currentLoadedPhotosInfo = LoadedPhotoInfoModel(photoInfo: currentPhotoInfo.first!, loadedImage: loadedImage)
-            isShowingDetailView = true
+            currentLoadedPhotosInfo = LoadedPhotoInfoModel(photoInfo: currentPhotoInfo.first!, loadedImage: loadedImage, dominantColor: .clear)
+            
+            DispatchQueue.main.async { [weak self] in
+                self?.isShowingDetailView = true
+            }
         }else{
             print("Error!")
         }
@@ -71,7 +75,9 @@ private extension PhotosListViewModel{
         if photosListResult.count == 0{
             photosInfoListFull = true
         }
-        self.photosList.append(contentsOf: photosListResult)
+        DispatchQueue.main.async { [weak self] in
+            self?.photosList.append(contentsOf: photosListResult)
+        }
     }
     
     func handleFetchPhotosFailure(error : NetworkError)  {
