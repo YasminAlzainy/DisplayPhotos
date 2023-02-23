@@ -10,11 +10,13 @@ import UIImageColors
 
 struct PhotoDetailsView: View {
     @Binding var loadedPhotoInfo: LoadedPhotoInfoModel
-    @State private var backgroundColor: Color = .clear
+    @ObservedObject private var viewModel = PhotoDetailsViewModel()
     
     var body: some View {
         VStack{
-            Spacer()
+            Text(viewModel.showLoader ? "PleaseWait".localize() : " ")
+                .font(.headline)
+                .padding()
             loadedPhotoInfo.loadedImage
                 .resizable()
                 .aspectRatio(contentMode: .fit)
@@ -26,14 +28,24 @@ struct PhotoDetailsView: View {
                 .multilineTextAlignment(.center)
             Spacer()
         }
-        
-        .background(backgroundColor)
-        .edgesIgnoringSafeArea(.all)
+        .background(viewModel.backgroundColor)
         .onAppear {
-            let uiImage: UIImage = loadedPhotoInfo.loadedImage.asUIImage()
-            let uiColor = uiImage.getColors()?.background ?? .clear
-            backgroundColor = Color(uiColor)
+            viewModel.loadBackgroundColor(loadedPhotoInfo: loadedPhotoInfo)
         }
-        
+    }
+}
+
+
+class PhotoDetailsViewModel: ObservableObject {
+    @Published var backgroundColor : Color = .clear
+    @Published var showLoader = true
+    
+    func loadBackgroundColor(loadedPhotoInfo: LoadedPhotoInfoModel) {
+        DispatchQueue.main.async { [weak self] in
+            let uiImage: UIImage = loadedPhotoInfo.loadedImage.asUIImage()
+            let uiColor = uiImage.getColors()?.background ?? .black
+            self?.backgroundColor = Color(uiColor)
+            self?.showLoader = false
+        }
     }
 }

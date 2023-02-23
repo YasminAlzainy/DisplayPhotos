@@ -22,7 +22,7 @@ struct LoadedPhotoInfoModel {
     init(){
         photoInfo = PhotoInfoModel(id: "", author: "", width: 0, height: 0, url: URL(string: ""), download_url: URL(string: ""))
         loadedImage = Image("test".localize())
-        self.dominantColor = .clear
+        self.dominantColor = .black
     }
     
 }
