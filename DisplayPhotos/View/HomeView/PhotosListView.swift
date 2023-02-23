@@ -23,12 +23,24 @@ struct PhotosListView: View {
                                 .padding()
                         }
                         
-                        PhotoView(photoInfo: viewModel.photosList[index], loaddedPhotoList: $viewModel.loaddedPhotoList)
-                            .onAppear(){
-                                viewModel.loadMorePhotos(currentPhoto: viewModel.photosList[index])
-                            }.onTapGesture {
-                                viewModel.navigateToNextView(photoId: viewModel.photosList[index].id)
+                        Button(action: {
+                            viewModel.navigateToNextView(photoId: viewModel.photosList[index].id)
+                        }){
+                            if(index <= 20){
+                                CachedPhotoView(photoInfo: viewModel.photosList[index], loaddedPhotoList: $viewModel.loaddedPhotoList)
+                                    .padding()
+                                    .onAppear(){
+                                        viewModel.loadMorePhotos(currentPhoto: viewModel.photosList[index])
+                                    }
+                            }else{
+                                PhotoView(photoInfo: viewModel.photosList[index], loaddedPhotoList: $viewModel.loaddedPhotoList)
+                                    .padding()
+                                    .onAppear(){
+                                        viewModel.loadMorePhotos(currentPhoto: viewModel.photosList[index])
+                                    }
                             }
+                            
+                        }
                     }.background{
                         NavigationLink(destination: PhotoDetailsView(loadedPhotoInfo: $viewModel.currentLoadedPhotosInfo) , isActive: $viewModel.isShowingDetailView){EmptyView()}
                     }
@@ -40,12 +52,3 @@ struct PhotosListView: View {
         
     }
 }
-
-//struct PhotosListView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ForEach(["iPhone SE (2nd generation)", "iPhone XS Max"], id: \.self) { deviceName in
-//            PhotosListView()
-//                .PhotosListView(PreviewDevice(rawValue: deviceName))
-//        }
-//    }
-//}

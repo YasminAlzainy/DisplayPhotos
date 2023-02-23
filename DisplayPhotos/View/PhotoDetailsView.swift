@@ -11,14 +11,13 @@ struct PhotoDetailsView: View {
     @Binding var loadedPhotoInfo: LoadedPhotoInfoModel
     
     var body: some View {
-        Spacer()
         loadedPhotoInfo.loadedImage
             .resizable()
             .aspectRatio(contentMode: .fit)
             .mask(RoundedRectangle(cornerRadius: 16))
             .padding()
         Text("Taken by: \(loadedPhotoInfo.photoInfo.author)")
-            .font(.caption)
+            .font(.headline)
             .bold()
             .multilineTextAlignment(.center)
         

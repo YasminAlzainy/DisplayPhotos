@@ -1,19 +1,20 @@
 //
-//  PhotoView.swift
+//  ChachedPhotoView.swift
 //  DisplayPhotos
 //
-//  Created by Yasmin Ayman on 01/08/1444 AH.
+//  Created by Yasmin Ayman on 03/08/1444 AH.
 //
 
 import SwiftUI
+import CachedAsyncImage
 
-struct PhotoView: View {
+struct CachedPhotoView: View {
     @State var photoInfo: PhotoInfoModel
     @Binding var loaddedPhotoList : [String:Image]
     
     var body: some View {
-        AsyncImage(
-            url: photoInfo.download_url){ phase in
+        CachedAsyncImage(
+            url: photoInfo.download_url , urlCache: .imageCache){ phase in
                 if let image = phase.image{
                     VStack{
                         image

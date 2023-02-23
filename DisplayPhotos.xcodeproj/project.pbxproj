@@ -12,6 +12,7 @@
 		CC85461229A6ADE70030E9D8 /* CachedAsyncImage in Frameworks */ = {isa = PBXBuildFile; productRef = CC85461129A6ADE70030E9D8 /* CachedAsyncImage */; };
 		CC85461429A6AE300030E9D8 /* URLCacheEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC85461329A6AE300030E9D8 /* URLCacheEx.swift */; };
 		CC85461629A768FB0030E9D8 /* LoadedPhotoInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC85461529A768FB0030E9D8 /* LoadedPhotoInfoModel.swift */; };
+		CC85461829A772310030E9D8 /* ChachedPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC85461729A772310030E9D8 /* ChachedPhotoView.swift */; };
 		CCE50A2429A2B26C00BBD405 /* DisplayPhotosApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE50A2329A2B26C00BBD405 /* DisplayPhotosApp.swift */; };
 		CCE50A2629A2B26C00BBD405 /* PhotosListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE50A2529A2B26C00BBD405 /* PhotosListView.swift */; };
 		CCE50A2829A2B27200BBD405 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CCE50A2729A2B27200BBD405 /* Assets.xcassets */; };
@@ -51,6 +52,7 @@
 		CC85460D29A605080030E9D8 /* StringEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringEx.swift; sourceTree = "<group>"; };
 		CC85461329A6AE300030E9D8 /* URLCacheEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLCacheEx.swift; sourceTree = "<group>"; };
 		CC85461529A768FB0030E9D8 /* LoadedPhotoInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadedPhotoInfoModel.swift; sourceTree = "<group>"; };
+		CC85461729A772310030E9D8 /* ChachedPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChachedPhotoView.swift; sourceTree = "<group>"; };
 		CCE50A2029A2B26C00BBD405 /* DisplayPhotos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DisplayPhotos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCE50A2329A2B26C00BBD405 /* DisplayPhotosApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayPhotosApp.swift; sourceTree = "<group>"; };
 		CCE50A2529A2B26C00BBD405 /* PhotosListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosListView.swift; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 			children = (
 				CCE50A2529A2B26C00BBD405 /* PhotosListView.swift */,
 				CCE50A9C29A50CDD00BBD405 /* PhotoView.swift */,
+				CC85461729A772310030E9D8 /* ChachedPhotoView.swift */,
 			);
 			path = HomeView;
 			sourceTree = "<group>";
@@ -362,6 +365,7 @@
 				CC85461629A768FB0030E9D8 /* LoadedPhotoInfoModel.swift in Sources */,
 				CCE50A5529A2B43400BBD405 /* PhotoInfoModel.swift in Sources */,
 				CCE50A5329A2B41900BBD405 /* URLConstans.swift in Sources */,
+				CC85461829A772310030E9D8 /* ChachedPhotoView.swift in Sources */,
 				CCE50A5F29A2CDFA00BBD405 /* Utils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
