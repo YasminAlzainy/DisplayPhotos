@@ -6,9 +6,14 @@
 //
 
 import Foundation
+import SwiftUI
 
 class PhotosListViewModel: ObservableObject {
     @Published var photosList : [PhotoInfoModel]
+    @Published var loaddedPhotoList : [String:Image]
+    @Published var currentLoadedPhotosInfo : LoadedPhotoInfoModel
+    @Published var isShowingDetailView : Bool
+    
     private let limit : Int
     private var page : Int
     private var photosInfoListFull : Bool
@@ -18,6 +23,9 @@ class PhotosListViewModel: ObservableObject {
         self.limit = 10
         self.page = 1
         self.photosInfoListFull = false
+        self.loaddedPhotoList = [:]
+        self.isShowingDetailView = false
+        self.currentLoadedPhotosInfo = LoadedPhotoInfoModel()
         
         self.fetchPhotosList()
     }
@@ -27,6 +35,19 @@ class PhotosListViewModel: ObservableObject {
         if lastPhotoId == currentPhoto.id, !photosInfoListFull {
             page += 1
             self.fetchPhotosList()
+        }
+    }
+    
+    func navigateToNextView(photoId: String){
+        let loadedImage = loaddedPhotoList[photoId] ?? Image("test".localize())
+        let currentPhotoInfo = photosList.filter { photoInfo in
+            photoInfo.id == photoId
+        }
+        if !currentPhotoInfo.isEmpty{
+            currentLoadedPhotosInfo = LoadedPhotoInfoModel(photoInfo: currentPhotoInfo.first!, loadedImage: loadedImage)
+            isShowingDetailView = true
+        }else{
+            print("Error!")
         }
     }
 }

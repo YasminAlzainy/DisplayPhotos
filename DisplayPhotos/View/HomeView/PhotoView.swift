@@ -6,21 +6,28 @@
 //
 
 import SwiftUI
+import CachedAsyncImage
 
 struct PhotoView: View {
     @State var photoInfo: PhotoInfoModel
+    @Binding var loaddedPhotoList : [String:Image]
     
     var body: some View {
-        AsyncImage(
-            url: photoInfo.download_url){ phase in
+        CachedAsyncImage(
+            url: photoInfo.download_url , urlCache: .imageCache){ phase in
                 if let image = phase.image{
-                    image
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .mask(RoundedRectangle(cornerRadius: 16))
-                    Text("Taken by: \(photoInfo.author)")
-                        .font(.caption)
-                        .multilineTextAlignment(.center)
+                    VStack{
+                        image
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .mask(RoundedRectangle(cornerRadius: 16))
+                            .onAppear{
+                                loaddedPhotoList[photoInfo.id] = image
+                            }
+                        Text("Taken by: \(photoInfo.author)")
+                            .font(.caption)
+                            .multilineTextAlignment(.center)
+                    }
                 }else if phase.error != nil {
                     Text("Error_ImageNotAvailable".localize())
                         .bold()
@@ -32,11 +39,5 @@ struct PhotoView: View {
                 }
             }
         
-    }
-}
-
-struct PhotoView_Previews: PreviewProvider {
-    static var previews: some View {
-        PhotoView(photoInfo: PhotoInfoModel(id: "", author: "", width: 0, height: 0, url: URL(string: "")!, download_url: URL(string: "")!))
     }
 }

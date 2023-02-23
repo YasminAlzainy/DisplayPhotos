@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		CC85460329A55F380030E9D8 /* PhotoDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC85460229A55F380030E9D8 /* PhotoDetailsView.swift */; };
 		CC85460E29A605080030E9D8 /* StringEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC85460D29A605080030E9D8 /* StringEx.swift */; };
+		CC85461229A6ADE70030E9D8 /* CachedAsyncImage in Frameworks */ = {isa = PBXBuildFile; productRef = CC85461129A6ADE70030E9D8 /* CachedAsyncImage */; };
+		CC85461429A6AE300030E9D8 /* URLCacheEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC85461329A6AE300030E9D8 /* URLCacheEx.swift */; };
+		CC85461629A768FB0030E9D8 /* LoadedPhotoInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC85461529A768FB0030E9D8 /* LoadedPhotoInfoModel.swift */; };
 		CCE50A2429A2B26C00BBD405 /* DisplayPhotosApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE50A2329A2B26C00BBD405 /* DisplayPhotosApp.swift */; };
 		CCE50A2629A2B26C00BBD405 /* PhotosListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE50A2529A2B26C00BBD405 /* PhotosListView.swift */; };
 		CCE50A2829A2B27200BBD405 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CCE50A2729A2B27200BBD405 /* Assets.xcassets */; };
@@ -46,6 +49,8 @@
 /* Begin PBXFileReference section */
 		CC85460229A55F380030E9D8 /* PhotoDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailsView.swift; sourceTree = "<group>"; };
 		CC85460D29A605080030E9D8 /* StringEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringEx.swift; sourceTree = "<group>"; };
+		CC85461329A6AE300030E9D8 /* URLCacheEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLCacheEx.swift; sourceTree = "<group>"; };
+		CC85461529A768FB0030E9D8 /* LoadedPhotoInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadedPhotoInfoModel.swift; sourceTree = "<group>"; };
 		CCE50A2029A2B26C00BBD405 /* DisplayPhotos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DisplayPhotos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCE50A2329A2B26C00BBD405 /* DisplayPhotosApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayPhotosApp.swift; sourceTree = "<group>"; };
 		CCE50A2529A2B26C00BBD405 /* PhotosListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosListView.swift; sourceTree = "<group>"; };
@@ -71,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC85461229A6ADE70030E9D8 /* CachedAsyncImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -193,6 +199,7 @@
 				CCE50A5229A2B41900BBD405 /* URLConstans.swift */,
 				CCE50A5E29A2CDFA00BBD405 /* Utils.swift */,
 				CC85460D29A605080030E9D8 /* StringEx.swift */,
+				CC85461329A6AE300030E9D8 /* URLCacheEx.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -201,6 +208,7 @@
 			isa = PBXGroup;
 			children = (
 				CCE50A5429A2B43400BBD405 /* PhotoInfoModel.swift */,
+				CC85461529A768FB0030E9D8 /* LoadedPhotoInfoModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -221,6 +229,9 @@
 			dependencies = (
 			);
 			name = DisplayPhotos;
+			packageProductDependencies = (
+				CC85461129A6ADE70030E9D8 /* CachedAsyncImage */,
+			);
 			productName = DisplayPhotos;
 			productReference = CCE50A2029A2B26C00BBD405 /* DisplayPhotos.app */;
 			productType = "com.apple.product-type.application";
@@ -293,6 +304,9 @@
 				Base,
 			);
 			mainGroup = CCE50A1729A2B26C00BBD405;
+			packageReferences = (
+				CC85461029A6ADE70030E9D8 /* XCRemoteSwiftPackageReference "SwiftUI-CachedAsyncImage" */,
+			);
 			productRefGroup = CCE50A2129A2B26C00BBD405 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -343,7 +357,9 @@
 				CCE50A9D29A50CDD00BBD405 /* PhotoView.swift in Sources */,
 				CC85460E29A605080030E9D8 /* StringEx.swift in Sources */,
 				CCE50A5B29A2BC2000BBD405 /* PhotosListService.swift in Sources */,
+				CC85461429A6AE300030E9D8 /* URLCacheEx.swift in Sources */,
 				CCE50A5729A2B4DB00BBD405 /* PhotosListViewModel.swift in Sources */,
+				CC85461629A768FB0030E9D8 /* LoadedPhotoInfoModel.swift in Sources */,
 				CCE50A5529A2B43400BBD405 /* PhotoInfoModel.swift in Sources */,
 				CCE50A5329A2B41900BBD405 /* URLConstans.swift in Sources */,
 				CCE50A5F29A2CDFA00BBD405 /* Utils.swift in Sources */,
@@ -513,6 +529,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -542,6 +559,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -671,6 +689,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		CC85461029A6ADE70030E9D8 /* XCRemoteSwiftPackageReference "SwiftUI-CachedAsyncImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/lorenzofiamingo/SwiftUI-CachedAsyncImage";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		CC85461129A6ADE70030E9D8 /* CachedAsyncImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CC85461029A6ADE70030E9D8 /* XCRemoteSwiftPackageReference "SwiftUI-CachedAsyncImage" */;
+			productName = CachedAsyncImage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = CCE50A1829A2B26C00BBD405 /* Project object */;
 }

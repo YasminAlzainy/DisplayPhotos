@@ -6,6 +6,10 @@
   
 */
 
+
 "Image_Ad" = "ad";
+"Image_test" = "test";
+
 "Error_ImageNotAvailable" = "Image is not available 😢";
+
 "Title_Photos" = "Photos";

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct PhotosListView: View {
-    @ObservedObject var viewModel : PhotosListViewModel
+    @ObservedObject private var viewModel : PhotosListViewModel = PhotosListViewModel()
     
     var body: some View {
         NavigationView{
@@ -22,11 +22,15 @@ struct PhotosListView: View {
                                 .mask(RoundedRectangle(cornerRadius: 16))
                                 .padding()
                         }
-                        PhotoView(photoInfo: viewModel.photosList[index])
+                        
+                        PhotoView(photoInfo: viewModel.photosList[index], loaddedPhotoList: $viewModel.loaddedPhotoList)
                             .onAppear(){
                                 viewModel.loadMorePhotos(currentPhoto: viewModel.photosList[index])
-                            }.padding()
-                        
+                            }.onTapGesture {
+                                viewModel.navigateToNextView(photoId: viewModel.photosList[index].id)
+                            }
+                    }.background{
+                        NavigationLink(destination: PhotoDetailsView(loadedPhotoInfo: $viewModel.currentLoadedPhotosInfo) , isActive: $viewModel.isShowingDetailView){EmptyView()}
                     }
                 }
             }
@@ -37,9 +41,11 @@ struct PhotosListView: View {
     }
 }
 
-struct PhotosListView_Previews: PreviewProvider {
-    static var previews: some View {
-        PhotosListView(viewModel: PhotosListViewModel())
-    }
-}
-
+//struct PhotosListView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ForEach(["iPhone SE (2nd generation)", "iPhone XS Max"], id: \.self) { deviceName in
+//            PhotosListView()
+//                .PhotosListView(PreviewDevice(rawValue: deviceName))
+//        }
+//    }
+//}

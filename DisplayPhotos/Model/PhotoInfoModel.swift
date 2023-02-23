@@ -12,6 +12,6 @@ struct PhotoInfoModel : Codable , Hashable{
     let author : String
     let width : Double
     let height : Double
-    let url : URL
-    let download_url :URL
+    let url : URL?
+    let download_url :URL?
 }

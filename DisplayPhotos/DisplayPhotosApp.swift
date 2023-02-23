@@ -11,7 +11,7 @@ import SwiftUI
 struct DisplayPhotosApp: App {
     var body: some Scene {
         WindowGroup {
-            PhotosListView(viewModel: PhotosListViewModel())
+            PhotosListView()
         }
     }
 }

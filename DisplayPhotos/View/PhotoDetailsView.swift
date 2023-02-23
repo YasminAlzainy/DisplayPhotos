@@ -8,15 +8,21 @@
 import SwiftUI
 
 struct PhotoDetailsView: View {
-    @State var photoInfo: PhotoInfoModel
+    @Binding var loadedPhotoInfo: LoadedPhotoInfoModel
     
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
-
-struct PhotoDetailsView_Previews: PreviewProvider {
-    static var previews: some View {
-        PhotoDetailsView(photoInfo: PhotoInfoModel(id: "", author: "", width: 0, height: 0, url: URL(string: "")!, download_url: URL(string: "")!))
+        Spacer()
+        loadedPhotoInfo.loadedImage
+            .resizable()
+            .aspectRatio(contentMode: .fit)
+            .mask(RoundedRectangle(cornerRadius: 16))
+            .padding()
+        Text("Taken by: \(loadedPhotoInfo.photoInfo.author)")
+            .font(.caption)
+            .bold()
+            .multilineTextAlignment(.center)
+        
+        
+        Spacer()
     }
 }
